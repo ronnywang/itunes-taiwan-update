@@ -1,1 +1,14 @@
-Index
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Latest Movies</title>
+</head>
+<body>
+<ol>
+    <?php foreach (Movie::search(1)->order('created_at DESC')->limit(10) as $movie) { ?>
+    <li><a href="<?= $this->escape($movie->url) ?>"><?= $this->escape($movie->description) ?></a><?= date('Y/m/d H:i:s', $movie->created_at) ?></li>
+    <?php } ?>
+</ol>
+</body>
+</html>
