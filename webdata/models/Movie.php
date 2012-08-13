@@ -12,5 +12,6 @@ class Movie extends Pix_Table
         $this->_columns['id'] = array('type' => 'int');
         $this->_columns['url'] = array('type' => 'text');
         $this->_columns['description'] = array('type' => 'text');
+        $this->_columns['created_at'] = array('type' => 'int');
     }
 }
