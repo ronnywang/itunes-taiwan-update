@@ -1,18 +1,20 @@
 <?= '<?xml version="1.0" encoding="UTF-8"?>' ?>
-<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" atom="http://www.w3.org/2005/Atom" version="2.0">
 <channel>
-    <title>iTunes Store Taiwan Movie update list</title>
-    <link>http://itunes.ronny.tw/</link>
-    <description>iTunes Store Taiwan Movie update list</description>
-    <pubDate><?= date('c', Movie::search(1)->max('created_at')->created_at) ?></pubDate>
-    <managingEditor>ronnywang</managingEditor>
-    <language>zh</language>
-    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-    <?php foreach (Movie::search(1)->order('created_at DESC')->limit(10) as $movie) { ?>
-    <item>
-    <title><?= $this->escape($movie->description) ?></title>
-    <link><?= $this->escape($movie->url) ?></link>
-    <guid><?= $this->escape($movie->url) ?></guid>
-    </item>
-    <?php } ?>
+<title>iTunes Store Taiwan Movie update list</title>
+<link>http://itunes.ronny.tw/</link>
+<description>iTunes Store Taiwan Movie update list</description>
+<pubDate><?= date('r', Movie::search(1)->max('created_at')->created_at) ?></pubDate>
+<managingEditor>ronnywang@gmail.com (Ronny Wang)</managingEditor>
+<language>zh</language>
+<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+<?php foreach (Movie::search(1)->order('created_at DESC')->limit(10) as $movie) { ?>
+<item>
+<title><?= $this->escape($movie->description) ?></title>
+<link><?= $this->escape($movie->url) ?></link>
+<guid><?= $this->escape($movie->url) ?></guid>
+<pubDate><?= date('r', $movie->created_at) ?></pubDate>
+</item>
+<?php } ?>
 </channel>
+</rss>
