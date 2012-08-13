@@ -21,3 +21,5 @@ if (file_exists(__DIR__ . '/config.php')) {
         }
     }
 }
+
+date_default_timezone_set('Asia/Taipei');
