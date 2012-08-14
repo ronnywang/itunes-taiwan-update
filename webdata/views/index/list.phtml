@@ -8,7 +8,7 @@
 <ol>
     <?php foreach (Movie::search(1)->order('created_at DESC')->limit(10) as $movie) { ?>
     <li>
-    <a href="<?= $this->escape($movie->url) ?>"><?= $this->escape($movie->name) ?></a>
+    <a href="<?= $this->escape($movie->url) ?>"><?= $this->escape($movie->description) ?></a>
     <?= date('r', $movie->created_at) ?>
     </li>
     <?php } ?>
