@@ -10,4 +10,8 @@ class IndexController extends Pix_Controller
     public function listAction()
     {
     }
+
+    public function allAction()
+    {
+    }
 }

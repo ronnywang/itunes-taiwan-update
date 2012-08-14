@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>iTunes Store Taiwan Movie update list</title>
+</head>
+<body>
+<ol>
+    <?php foreach (Movie::search(1)->order('created_at DESC') as $movie) { ?>
+    <li>
+    <a href="<?= $this->escape($movie->url) ?>"><?= $this->escape($movie->description) ?></a>
+    <?= date('r', $movie->created_at) ?>
+    </li>
+    <?php } ?>
+</body>
+</html>
