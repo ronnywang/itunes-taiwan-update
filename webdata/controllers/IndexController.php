@@ -6,4 +6,8 @@ class IndexController extends Pix_Controller
     {
         header('Content-Type: application/rss+xml');
     }
+
+    public function listAction()
+    {
+    }
 }
